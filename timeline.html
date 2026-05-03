@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Timeline - Election Mentor AI</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="logo-section">
+                <div class="logo-icon">
+                    <i class="fa-solid fa-cube"></i>
+                </div>
+                <div class="logo-text">
+                    <h1>Election</h1>
+                    <p>Mentor AI</p>
+                </div>
+            </div>
+
+            <nav class="sidebar-nav">
+                <a href="index.html" class="nav-item">
+                    <i class="fa-solid fa-chart-pie"></i>
+                    <span>Dashboard</span>
+                </a>
+                <a href="timeline.html" class="nav-item active">
+                    <i class="fa-solid fa-timeline"></i>
+                    <span>Timeline</span>
+                </a>
+                <a href="simulation.html" class="nav-item">
+                    <i class="fa-solid fa-vr-cardboard"></i>
+                    <span>Simulation</span>
+                </a>
+                <a href="#" class="nav-item">
+                    <i class="fa-solid fa-book-open"></i>
+                    <span>Learn</span>
+                </a>
+                <a href="journey-progress.html" class="nav-item">
+                    <i class="fa-solid fa-bars-progress"></i>
+                    <span>My Progress</span>
+                </a>
+                <a href="#" class="nav-item">
+                    <i class="fa-solid fa-shield-halved"></i>
+                    <span>Myths Buster</span>
+                </a>
+                <a href="#" class="nav-item">
+                    <i class="fa-solid fa-gear"></i>
+                    <span>Settings</span>
+                </a>
+            </nav>
+
+            <div class="need-help-widget" onclick="window.location.href='index.html?chat=true'" style="cursor: pointer;">
+                <div class="robot-icon">
+                    <i class="fa-solid fa-robot"></i>
+                </div>
+                <div class="help-text">
+                    <p class="help-title">Need help?</p>
+                    <p class="help-subtitle">Ask our AI<br>Assistant</p>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Top Bar -->
+            <header class="top-bar">
+                <div class="welcome-message">
+                    <h2>Timeline</h2>
+                    <p>Stay updated with important election dates</p>
+                </div>
+                <div class="user-actions">
+                    <button class="notification-btn">
+                        <i class="fa-regular fa-bell"></i>
+                        <span class="badge"></span>
+                    </button>
+                    <div class="user-profile">
+                        <img src="https://ui-avatars.com/api/?name=Aarav+Sharma&background=random" alt="Aarav Sharma">
+                        <div class="user-info">
+                            <span class="user-name">Aarav Sharma</span>
+                            <span class="user-location">Maharashtra</span>
+                        </div>
+                        <i class="fa-solid fa-chevron-down dropdown-icon"></i>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Timeline Content -->
+            <div class="timeline-page-grid">
+                
+                <!-- Left Side: Timeline Cards -->
+                <div class="timeline-list">
+                    <div class="timeline-row-item">
+                        <div class="timeline-connector-point">
+                            <div class="point-icon"><i class="fa-regular fa-calendar"></i></div>
+                        </div>
+                        <div class="timeline-row-card">
+                            <div class="card-left-info">
+                                <span class="card-date">15 Aug 2024</span>
+                                <h3 class="card-event-title">Last date for new voter registration</h3>
+                            </div>
+                            <div class="card-right-badge badge-green">
+                                In 5 days
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="timeline-row-item">
+                        <div class="timeline-connector-point">
+                            <div class="point-icon"><i class="fa-solid fa-clock"></i></div>
+                        </div>
+                        <div class="timeline-row-card">
+                            <div class="card-left-info">
+                                <span class="card-date">25 Aug 2024</span>
+                                <h3 class="card-event-title">Deadline for document verification</h3>
+                            </div>
+                            <div class="card-right-badge">
+                                In 15 days
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="timeline-row-item">
+                        <div class="timeline-connector-point">
+                            <div class="point-icon"><i class="fa-solid fa-check"></i></div>
+                        </div>
+                        <div class="timeline-row-card">
+                            <div class="card-left-info">
+                                <span class="card-date">20 Nov 2024</span>
+                                <h3 class="card-event-title">Voting Day</h3>
+                            </div>
+                            <div class="card-right-badge">
+                                In 3 months
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="timeline-row-item">
+                        <div class="timeline-connector-point">
+                            <div class="point-icon"><i class="fa-solid fa-flag"></i></div>
+                        </div>
+                        <div class="timeline-row-card">
+                            <div class="card-left-info">
+                                <span class="card-date">23 Nov 2024</span>
+                                <h3 class="card-event-title">Results Declaration</h3>
+                            </div>
+                            <div class="card-right-badge">
+                                In 3 months
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Side: CTA / Space for Calendar Asset -->
+                <div class="timeline-cta-section" style="background: none; border: none; box-shadow: none; display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 24px;">
+                    <img src="calender_asset.png" alt="Calendar" style="width: 330px; height: auto; margin-top: -20px; object-fit: contain;">
+                    <div class="cta-message" style="text-align: center; display: flex; flex-direction: column; align-items: center; gap: 12px;">
+                        <h3 style="font-size: 20px; font-weight: 700; color: #fff; margin: 0;">Don't miss out!</h3>
+                        <p style="font-size: 15px; color: var(--secondary-text); margin: 0; line-height: 1.4;">Add these dates<br>to your calendar.</p>
+                        <button class="btn-primary cta-btn" style="display: inline-block; width: auto; min-width: 170px; color: #ffffff; background-color: #7033ff; border: 1px solid #8e5aff; padding: 12px 28px; border-radius: 12px; font-weight: 600; cursor: pointer; text-align: center; margin-top: 12px;" onclick="window.open('https://calendar.google.com/calendar/render?action=TEMPLATE&text=Voting+Day&dates=20241120T070000Z/20241120T180000Z&details=Election+Mentor+AI+-+Voting+Day', '_blank')">Add Now</button>
+                    </div>
+                </div>
+
+            </div>
+        </main>
+    </div>
+</body>
+</html>

@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Election Mentor AI</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="logo-section">
+                <div class="logo-icon">
+                    <i class="fa-solid fa-cube"></i>
+                </div>
+                <div class="logo-text">
+                    <h1>Election</h1>
+                    <p>Mentor AI</p>
+                </div>
+            </div>
+
+            <nav class="sidebar-nav">
+                <a href="index.html" class="nav-item active" aria-label="Go to Dashboard">
+                    <i class="fa-solid fa-chart-pie"></i>
+                    <span>Dashboard</span>
+                </a>
+                <a href="timeline.html" class="nav-item" aria-label="Go to Timeline">
+                    <i class="fa-solid fa-timeline"></i>
+                    <span>Timeline</span>
+                </a>
+                <a href="simulation.html" class="nav-item" aria-label="Go to Simulation">
+                    <i class="fa-solid fa-vr-cardboard"></i>
+                    <span>Simulation</span>
+                </a>
+                <a href="learn.html" class="nav-item" aria-label="Go to Learn Resources">
+                    <i class="fa-solid fa-book-open"></i>
+                    <span>Learn</span>
+                </a>
+                <a href="journey-progress.html" class="nav-item" aria-label="Go to My Progress">
+                    <i class="fa-solid fa-bars-progress"></i>
+                    <span>My Progress</span>
+                </a>
+                <a href="#" class="nav-item" aria-label="Go to Myths Buster">
+                    <i class="fa-solid fa-shield-halved"></i>
+                    <span>Myths Buster</span>
+                </a>
+                <a href="#" class="nav-item" aria-label="Go to Settings">
+                    <i class="fa-solid fa-gear"></i>
+                    <span>Settings</span>
+                </a>
+            </nav>
+
+            <div class="need-help-widget" onclick="openAIChat()" style="cursor: pointer;">
+                <div class="robot-icon">
+                    <i class="fa-solid fa-robot"></i>
+                </div>
+                <div class="help-text">
+                    <p class="help-title">Need help?</p>
+                    <p class="help-subtitle">Ask our AI<br>Assistant</p>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Top Bar -->
+            <header class="top-bar">
+                <div class="welcome-message">
+                    <h2>Welcome back, Aarav! <span class="wave">👋</span></h2>
+                    <p>Let's complete your voting journey</p>
+                </div>
+                <div class="user-actions">
+                    <button class="notification-btn">
+                        <i class="fa-regular fa-bell"></i>
+                        <span class="badge"></span>
+                    </button>
+                    <div class="user-profile">
+                        <img src="https://ui-avatars.com/api/?name=Aarav+Sharma&background=random" alt="Aarav Sharma">
+                        <div class="user-info">
+                            <span class="user-name" id="userName">Aarav Sharma</span>
+                            <span class="user-location" id="userLocation">Maharashtra</span>
+                        </div>
+                        <i class="fa-solid fa-chevron-down dropdown-icon"></i>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Dashboard Grid -->
+            <div class="dashboard-grid">
+                
+                <!-- Confidence Score Card -->
+                <div class="card confidence-card">
+                    <div class="progress-circle">
+                        <svg viewBox="0 0 130 130">
+                            <circle cx="65" cy="65" r="50"></circle>
+                            <circle cx="65" cy="65" r="50" class="progress-value" id="progressCircle"></circle>
+                        </svg>
+                        <div class="progress-text">
+                            <span class="percentage" id="scorePercent">72%</span>
+                        </div>
+                    </div>
+                    <div class="confidence-info">
+                        <h3>Your Voting Confidence Score</h3>
+                        <p>You are almost ready!</p>
+                        <button class="btn-primary" onclick="window.location.href='age-selection.html'">View Details</button>
+                    </div>
+                </div>
+
+                <!-- Journey Timeline Card -->
+                <div class="card journey-card">
+                    <div class="timeline-steps">
+                        <div class="step completed">
+                            <div class="step-icon"><i class="fa-solid fa-check"></i></div>
+                            <p class="step-title">Eligibility</p>
+                            <p class="step-status">Completed</p>
+                        </div>
+                        <div class="connector completed"></div>
+                        <div class="step completed">
+                            <div class="step-icon"><i class="fa-solid fa-check"></i></div>
+                            <p class="step-title">Register</p>
+                            <p class="step-status">Completed</p>
+                        </div>
+                        <div class="connector in-progress"></div>
+                        <div class="step in-progress">
+                            <div class="step-icon"><i class="fa-solid fa-magnifying-glass"></i></div>
+                            <p class="step-title">Verify</p>
+                            <p class="step-status">In Progress</p>
+                        </div>
+                        <div class="connector upcoming"></div>
+                        <div class="step upcoming">
+                            <div class="step-icon"><i class="fa-regular fa-envelope"></i></div>
+                            <p class="step-title">Vote</p>
+                            <p class="step-status">Upcoming</p>
+                        </div>
+                        <div class="connector upcoming"></div>
+                        <div class="step upcoming">
+                            <div class="step-icon"><i class="fa-solid fa-xmark"></i></div>
+                            <p class="step-title">All Set!</p>
+                            <p class="step-status">Almost there</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Important Dates Card -->
+                <div class="card dates-card">
+                    <div class="card-header">
+                        <h3>Upcoming Important Dates</h3>
+                        <button class="btn-secondary">View All</button>
+                    </div>
+                    <div class="vertical-timeline">
+                        <div class="date-item">
+                            <div class="date-marker"></div>
+                            <div class="date-content">
+                                <span class="date">15 Aug 2024</span>
+                                <span class="event">Last date for new voter registration</span>
+                            </div>
+                        </div>
+                        <div class="date-item">
+                            <div class="date-marker"></div>
+                            <div class="date-content">
+                                <span class="date">25 Aug 2024</span>
+                                <span class="event">Deadline for document verification</span>
+                            </div>
+                        </div>
+                        <div class="date-item">
+                            <div class="date-marker"></div>
+                            <div class="date-content">
+                                <span class="date">20 Nov 2024</span>
+                                <span class="event">Voting Day</span>
+                            </div>
+                        </div>
+                        <div class="date-item">
+                            <div class="date-marker"></div>
+                            <div class="date-content">
+                                <span class="date">23 Nov 2024</span>
+                                <span class="event">Results Declaration</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- AI Assistant Card -->
+                <div class="card chat-card">
+                    <div class="card-header">
+                        <div class="ai-header-wrapper">
+                            <h3>AI Assistant</h3>
+                            <span class="powered-by"><i class="fa-brands fa-google"></i> Powered by Google Gemini</span>
+                        </div>
+                        <i class="fa-solid fa-expand expand-icon"></i>
+                    </div>
+                    <div class="chat-area" id="chatArea">
+                        <div class="message ai-message">
+                            <div class="avatar"><i class="fa-solid fa-robot"></i></div>
+                            <div class="bubble">Hello! I'm your Election Mentor AI, powered by Google Gemini. How can I help you today?</div>
+                        </div>
+                    </div>
+                    <div class="chat-input-area">
+                        <div class="input-wrapper">
+                            <i class="fa-solid fa-rotate-right reset-icon" onclick="resetChat()"></i>
+                            <input type="text" id="chatInput" onkeydown="if (event.key === 'Enter') sendMessage()" placeholder="Ask anything about elections...">
+                            <i class="fa-solid fa-microphone mic-icon"></i>
+                        </div>
+                        <button class="send-btn" onclick="sendMessage()"><i class="fa-solid fa-paper-plane"></i></button>
+                    </div>
+                </div>
+
+            </div>
+        </main>
+    </div>
+
+    <script>
+        const chatArea = document.getElementById('chatArea');
+        const chatInput = document.getElementById('chatInput');
+
+        const geminiAnswers = [
+            "Based on your profile, you are eligible to vote. Be sure to check out the 'Learn' tab for more details on necessary documents.",
+            "Yes! You can use any alternative government ID such as your Aadhaar card or PAN card to verify your identity at the booth.",
+            "You can practice entering the booth and casting your vote in our interactive Voting Simulation from the sidebar.",
+            "The upcoming deadline for voter registration is 15th August 2024. Feel free to ask more questions!"
+        ];
+        let answerIndex = 0;
+
+        function sendMessage() {
+            const text = chatInput.value.trim();
+            if (!text) return;
+
+            // User Message
+            const userMsg = document.createElement('div');
+            userMsg.className = 'message user-message';
+            userMsg.innerHTML = `<div class="bubble">${text}</div>`;
+            chatArea.appendChild(userMsg);
+            chatInput.value = '';
+            chatArea.scrollTop = chatArea.scrollHeight;
+
+            // Typing indicator
+            const typingIndicator = document.createElement('div');
+            typingIndicator.className = 'message ai-message';
+            typingIndicator.id = 'typingIndicator';
+            typingIndicator.innerHTML = `
+                <div class="avatar"><i class="fa-solid fa-robot"></i></div>
+                <div class="bubble typing">Gemini is thinking...</div>
+            `;
+            chatArea.appendChild(typingIndicator);
+            chatArea.scrollTop = chatArea.scrollHeight;
+
+            // AI Answer from Gemini
+            setTimeout(() => {
+                const indicator = document.getElementById('typingIndicator');
+                if (indicator) indicator.remove();
+
+                const aiMsg = document.createElement('div');
+                aiMsg.className = 'message ai-message';
+                const answer = geminiAnswers[answerIndex % geminiAnswers.length];
+                answerIndex++;
+                aiMsg.innerHTML = `
+                    <div class="avatar"><i class="fa-solid fa-robot"></i></div>
+                    <div class="bubble">${answer}</div>
+                `;
+                chatArea.appendChild(aiMsg);
+                chatArea.scrollTop = chatArea.scrollHeight;
+            }, 1200);
+        }
+
+        function resetChat() {
+            chatArea.innerHTML = `
+                <div class="message ai-message">
+                    <div class="avatar"><i class="fa-solid fa-robot"></i></div>
+                    <div class="bubble">Hello! I'm your Election Mentor AI, powered by Google Gemini. How can I help you today?</div>
+                </div>
+            `;
+        }
+
+        function openAIChat() {
+            chatInput.focus();
+            chatInput.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            chatInput.style.border = '2px solid var(--accent-purple-light)';
+            setTimeout(() => {
+                chatInput.style.border = '';
+            }, 1500);
+        }
+
+        window.addEventListener('load', () => {
+            if (window.location.search.includes('chat=true')) {
+                openAIChat();
+            }
+
+            // LocalStorage Backend logic
+            const state = localStorage.getItem('voter_state') || 'Maharashtra';
+            const district = localStorage.getItem('voter_district') || 'Pune';
+            const age = localStorage.getItem('voter_age');
+            const voterType = localStorage.getItem('voter_type');
+            const voted = localStorage.getItem('voted_candidate');
+
+            const locationEl = document.getElementById('userLocation');
+            if (locationEl) {
+                locationEl.innerText = `${state}, ${district}`;
+            }
+
+            let score = 12;
+            if (age) score += 20;
+            if (state) score += 20;
+            if (voterType) score += 20;
+            if (voted) score += 28;
+
+            const scorePercent = document.getElementById('scorePercent');
+            const progressCircle = document.getElementById('progressCircle');
+
+            if (scorePercent) scorePercent.innerText = `${score}%`;
+            if (progressCircle) {
+                const dashOffset = 314 - (314 * score) / 100;
+                progressCircle.style.strokeDashoffset = dashOffset;
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Age Selection - Election Mentor AI</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="logo-section">
+                <div class="logo-icon">
+                    <i class="fa-solid fa-cube"></i>
+                </div>
+                <div class="logo-text">
+                    <h1>Election</h1>
+                    <p>Mentor AI</p>
+                </div>
+            </div>
+
+            <nav class="sidebar-nav">
+                <a href="index.html" class="nav-item">
+                    <i class="fa-solid fa-chart-pie"></i>
+                    <span>Dashboard</span>
+                </a>
+                <a href="timeline.html" class="nav-item">
+                    <i class="fa-solid fa-timeline"></i>
+                    <span>Timeline</span>
+                </a>
+                <a href="simulation.html" class="nav-item">
+                    <i class="fa-solid fa-vr-cardboard"></i>
+                    <span>Simulation</span>
+                </a>
+                <a href="#" class="nav-item">
+                    <i class="fa-solid fa-book-open"></i>
+                    <span>Learn</span>
+                </a>
+                <a href="#" class="nav-item active">
+                    <i class="fa-solid fa-bars-progress"></i>
+                    <span>My Progress</span>
+                </a>
+                <a href="#" class="nav-item">
+                    <i class="fa-solid fa-shield-halved"></i>
+                    <span>Myths Buster</span>
+                </a>
+                <a href="#" class="nav-item">
+                    <i class="fa-solid fa-gear"></i>
+                    <span>Settings</span>
+                </a>
+            </nav>
+
+            <div class="need-help-widget" onclick="window.location.href='index.html?chat=true'" style="cursor: pointer;">
+                <div class="robot-icon">
+                    <i class="fa-solid fa-robot"></i>
+                </div>
+                <div class="help-text">
+                    <p class="help-title">Need help?</p>
+                    <p class="help-subtitle">Ask our AI<br>Assistant</p>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Top Bar -->
+            <header class="top-bar">
+                <div class="welcome-message">
+                    <h2>Onboarding</h2>
+                    <p>Step 2 of 4</p>
+                </div>
+                <div class="user-actions">
+                    <button class="notification-btn">
+                        <i class="fa-regular fa-bell"></i>
+                        <span class="badge"></span>
+                    </button>
+                    <div class="user-profile">
+                        <img src="https://ui-avatars.com/api/?name=Aarav+Sharma&background=random" alt="Aarav Sharma">
+                        <div class="user-info">
+                            <span class="user-name">Aarav Sharma</span>
+                            <span class="user-location">Maharashtra</span>
+                        </div>
+                        <i class="fa-solid fa-chevron-down dropdown-icon"></i>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Onboarding Arc -->
+            <div class="age-selection-content">
+                <div class="age-selection-card">
+                    <span class="onboarding-step-label">Step 2 of 4</span>
+                    <h2 class="onboarding-step-title">How old are you?</h2>
+                    <p class="onboarding-step-description">Your age helps us personalize your experience</p>
+
+                    <!-- Curved Arc Gauge / Control -->
+                    <div class="arc-slider-wrapper">
+                        <svg class="arc-svg" viewBox="0 0 200 120">
+                            <!-- Background Track Arc -->
+                            <path class="arc-track" d="M 20 100 A 80 80 0 0 1 180 100" />
+                            <!-- Value Filled Track Arc -->
+                            <path class="arc-fill" d="M 20 100 A 80 80 0 0 1 70 38" />
+                            <!-- Handle Indicator Circle on the Arc -->
+                            <circle class="arc-handle" cx="70" cy="38" r="5" />
+                        </svg>
+                        
+                        <div class="arc-labels">
+                            <span class="label-left">18</span>
+                            <div class="age-display">
+                                <span class="age-number">19</span>
+                                <span class="age-unit">Years</span>
+                            </div>
+                            <span class="label-right">100</span>
+                        </div>
+                    </div>
+
+                    <div style="text-align: center; margin: 12px 0;">
+                        <img src="building_asset.png" alt="Building" style="max-width: 64px; height: auto; border-radius: 8px; box-shadow: 0 4px 10px rgba(0,0,0,0.25);">
+                    </div>
+
+                    <button class="btn-primary onboarding-next-btn" onclick="saveAgeAndNavigate()">Next</button>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script>
+        function saveAgeAndNavigate() {
+            localStorage.setItem('voter_age', '19');
+            window.location.href = 'location-selection.html';
+        }
+    </script>
+</body>
+</html>

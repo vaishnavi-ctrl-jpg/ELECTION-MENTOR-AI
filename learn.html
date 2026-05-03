@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Learn - Election Mentor AI</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="logo-section">
+                <div class="logo-icon">
+                    <i class="fa-solid fa-cube"></i>
+                </div>
+                <div class="logo-text">
+                    <h1>Election</h1>
+                    <p>Mentor AI</p>
+                </div>
+            </div>
+
+            <nav class="sidebar-nav">
+                <a href="index.html" class="nav-item">
+                    <i class="fa-solid fa-chart-pie"></i>
+                    <span>Dashboard</span>
+                </a>
+                <a href="timeline.html" class="nav-item">
+                    <i class="fa-solid fa-timeline"></i>
+                    <span>Timeline</span>
+                </a>
+                <a href="simulation.html" class="nav-item">
+                    <i class="fa-solid fa-vr-cardboard"></i>
+                    <span>Simulation</span>
+                </a>
+                <a href="learn.html" class="nav-item active">
+                    <i class="fa-solid fa-book-open"></i>
+                    <span>Learn</span>
+                </a>
+                <a href="journey-progress.html" class="nav-item">
+                    <i class="fa-solid fa-bars-progress"></i>
+                    <span>My Progress</span>
+                </a>
+                <a href="#" class="nav-item">
+                    <i class="fa-solid fa-shield-halved"></i>
+                    <span>Myths Buster</span>
+                </a>
+                <a href="#" class="nav-item">
+                    <i class="fa-solid fa-gear"></i>
+                    <span>Settings</span>
+                </a>
+            </nav>
+
+            <div class="need-help-widget" onclick="window.location.href='index.html?chat=true'" style="cursor: pointer;">
+                <div class="robot-icon">
+                    <i class="fa-solid fa-robot"></i>
+                </div>
+                <div class="help-text">
+                    <p class="help-title">Need help?</p>
+                    <p class="help-subtitle">Ask our AI<br>Assistant</p>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Top Bar -->
+            <header class="top-bar">
+                <div class="welcome-message">
+                    <h2>Learn About Elections</h2>
+                    <p>Information and resources for first-time and returning voters</p>
+                </div>
+                <div class="user-actions">
+                    <button class="notification-btn">
+                        <i class="fa-regular fa-bell"></i>
+                        <span class="badge"></span>
+                    </button>
+                    <div class="user-profile">
+                        <img src="https://ui-avatars.com/api/?name=Aarav+Sharma&background=random" alt="Aarav Sharma">
+                        <div class="user-info">
+                            <span class="user-name">Aarav Sharma</span>
+                            <span class="user-location">Maharashtra</span>
+                        </div>
+                        <i class="fa-solid fa-chevron-down dropdown-icon"></i>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Content -->
+            <div class="learn-instructions-grid">
+                
+                <!-- Card 1: Voting Eligibility -->
+                <div class="card learn-card">
+                    <div class="learn-card-header">
+                        <i class="fa-solid fa-id-card header-icon purple-accent"></i>
+                        <h3>1. Voting Eligibility</h3>
+                    </div>
+                    <p class="learn-subtitle">Key requirements to register and vote:</p>
+                    <ul class="learn-list">
+                        <li>You must be a citizen of India</li>
+                        <li>You must be 18 years or older on the qualifying date</li>
+                        <li>You must be a resident of the polling area</li>
+                    </ul>
+                </div>
+
+                <!-- Card 2: Required Documents -->
+                <div class="card learn-card">
+                    <div class="learn-card-header">
+                        <i class="fa-solid fa-file-invoice header-icon orange-accent"></i>
+                        <h3>2. Required Documents</h3>
+                    </div>
+                    <p class="learn-subtitle">Approved alternate identity proofs:</p>
+                    <ul class="learn-list">
+                        <li>Aadhaar Card</li>
+                        <li>MNREGA Job Card</li>
+                        <li>Passbooks with photograph issued by Bank/Post Office</li>
+                        <li>Health Insurance Smart Card</li>
+                        <li>Driving License, PAN Card, Indian Passport</li>
+                    </ul>
+                </div>
+
+                <!-- Card 3: Voting Process -->
+                <div class="card learn-card">
+                    <div class="learn-card-header">
+                        <i class="fa-solid fa-check-to-slot header-icon blue-accent"></i>
+                        <h3>3. Voting Process</h3>
+                    </div>
+                    <p class="learn-subtitle">Step-by-step guide on Election Day:</p>
+                    <ul class="learn-list">
+                        <li>First polling official checks your name on voter list and ID proof</li>
+                        <li>Second polling official inks your finger, gives you a slip and takes signature</li>
+                        <li>Third polling official takes the slip and enables the voting machine</li>
+                        <li>Cast your vote on the EVM by pressing the candidate button</li>
+                    </ul>
+                </div>
+
+            </div>
+        </main>
+    </div>
+</body>
+</html>

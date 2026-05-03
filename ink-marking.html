@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ink Marking - Election Mentor AI</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="logo-section">
+                <div class="logo-icon">
+                    <i class="fa-solid fa-cube"></i>
+                </div>
+                <div class="logo-text">
+                    <h1>Election</h1>
+                    <p>Mentor AI</p>
+                </div>
+            </div>
+
+            <nav class="sidebar-nav">
+                <a href="index.html" class="nav-item">
+                    <i class="fa-solid fa-chart-pie"></i>
+                    <span>Dashboard</span>
+                </a>
+                <a href="timeline.html" class="nav-item">
+                    <i class="fa-solid fa-timeline"></i>
+                    <span>Timeline</span>
+                </a>
+                <a href="simulation.html" class="nav-item active">
+                    <i class="fa-solid fa-vr-cardboard"></i>
+                    <span>Simulation</span>
+                </a>
+                <a href="#" class="nav-item">
+                    <i class="fa-solid fa-book-open"></i>
+                    <span>Learn</span>
+                </a>
+                <a href="#" class="nav-item">
+                    <i class="fa-solid fa-bars-progress"></i>
+                    <span>My Progress</span>
+                </a>
+                <a href="#" class="nav-item">
+                    <i class="fa-solid fa-shield-halved"></i>
+                    <span>Myths Buster</span>
+                </a>
+                <a href="#" class="nav-item">
+                    <i class="fa-solid fa-gear"></i>
+                    <span>Settings</span>
+                </a>
+            </nav>
+
+            <div class="need-help-widget" onclick="window.location.href='index.html?chat=true'" style="cursor: pointer;">
+                <div class="robot-icon">
+                    <i class="fa-solid fa-robot"></i>
+                </div>
+                <div class="help-text">
+                    <p class="help-title">Need help?</p>
+                    <p class="help-subtitle">Ask our AI<br>Assistant</p>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Top Bar -->
+            <header class="top-bar">
+                <div class="welcome-message">
+                    <h2>Ink Marking</h2>
+                    <p>Test your identity</p>
+                </div>
+                <div class="user-actions">
+                    <button class="notification-btn">
+                        <i class="fa-regular fa-bell"></i>
+                        <span class="badge"></span>
+                    </button>
+                    <div class="user-profile">
+                        <img src="https://ui-avatars.com/api/?name=Aarav+Sharma&background=random" alt="Aarav Sharma">
+                        <div class="user-info">
+                            <span class="user-name">Aarav+Sharma</span>
+                            <span class="user-location">Maharashtra</span>
+                        </div>
+                        <i class="fa-solid fa-chevron-down dropdown-icon"></i>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Centered Success Layout -->
+            <div class="ink-marking-content">
+                <div class="success-visual-box">
+                    <div class="finger-ink-icon" style="background: none; box-shadow: none; width: auto; height: auto; border: none; margin-bottom: 16px;">
+                        <img src="scaca.png" alt="Ink Marker" style="max-width: 140px; height: auto; border-radius: 16px; box-shadow: 0 4px 25px rgba(0,0,0,0.4);">
+                    </div>
+                    
+                    <h2 class="thank-you-title">Thank You!</h2>
+                    <p class="thank-you-text">Your vote has been recorded.</p>
+                    <p class="awesome-text">You are awesome! 💜</p>
+
+                    <button class="btn-primary finish-btn" onclick="window.location.href='index.html'">Finish</button>
+                </div>
+            </div>
+        </main>
+    </div>
+</body>
+</html>

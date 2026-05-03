@@ -152,10 +152,20 @@ body {
 }
 
 .cal-img-fit {
-    width: 330px;
+    width: 360px;
     height: auto;
-    margin-top: -20px;
+    margin-top: 0px;
     object-fit: contain;
+}
+
+.timeline-cta-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .cta-message-center {

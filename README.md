@@ -5,8 +5,18 @@
 [![Platform](https://img.shields.io/badge/Platform-Cloud%20Run-orange.svg)]()
 [![Frontend](https://img.shields.io/badge/Frontend-HTML5%20%2F%20CSS3%20%2F%20JS-blueviolet.svg)]()
 [![Database](https://img.shields.io/badge/Database-Firebase%20%2F%20Cloud%20Firestore-yellow.svg)]()
+[![Hackathon](https://img.shields.io/badge/Made%20For-Google%20Developer%20X%20Hack2Skill%20%7C%20Prompt%20Wars-blue?logo=google&logoColor=white)](https://hack2skill.com)
+[![Profile](https://img.shields.io/badge/Creator-Vaishnavi--ctrl--jpg-pink?logo=github&logoColor=white)](https://github.com/vaishnavi-ctrl-jpg)
 
 **Election Mentor AI** is a premium, high-fidelity, and fully optimized web application built to empower, educate, and guide citizens through the entire electoral process. It features full dark-mode glassmorphism, responsive onboarding, realistic voting simulation, and an AI-powered translation & assistance layer to make civic participation seamless and secure for all.
+
+---
+
+## 🚀 Hackathon & Submission Details
+
+- **Event**: Google Developer X Hack2Skill: Prompt Wars
+- **Creator**: [Vaishnavi (vaishnavi-ctrl-jpg)](https://github.com/vaishnavi-ctrl-jpg)
+- **Deployment Endpoint**: [https://election-mentor-ai-796138804129.us-central1.run.app](https://election-mentor-ai-796138804129.us-central1.run.app)
 
 ---
 
@@ -84,6 +94,50 @@ ELECTION-MENTOR-AI/
 - **Security First**: 100% compliant with static header hardening, strict CSP configuration, and script externalization.
 - **Efficiency Redefined**: 100% asset conversion to highly-optimized **WebP format** reducing image weight by up to 91%.
 - **Google Cloud Run Deployment**: Built using an Alpine-Nginx base image optimized for high traffic and zero overhead.
+
+---
+
+## ⚙️ Cloning & Installation Guide
+
+Get a local copy up and running easily following these steps:
+
+### Prerequisites
+- Node.js installed (LTS recommended)
+- Git command line tools installed
+
+### Steps to Run Locally
+
+```bash
+# 1. Clone the repository
+git clone https://github.com/vaishnavi-ctrl-jpg/ELECTION-MENTOR-AI.git
+
+# 2. Change directory to project folder
+cd ELECTION-MENTOR-AI
+
+# 3. Install NPM testing and dev dependencies
+npm install
+
+# 4. Use a local HTTP server to run the app locally
+npx serve .
+```
+
+---
+
+## 🚀 Deployment Guide
+
+To deploy this containerized Nginx static application to Google Cloud Run:
+
+### 1. Build and Deploy directly via `gcloud`
+
+Ensure the Google Cloud SDK is initialized and authenticated, then run the deployment command from your terminal:
+
+```bash
+gcloud run deploy election-mentor-ai \
+    --source . \
+    --region us-central1 \
+    --allow-unauthenticated \
+    --port 8080
+```
 
 ---
 

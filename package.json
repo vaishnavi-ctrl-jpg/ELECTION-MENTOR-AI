@@ -1,0 +1,23 @@
+{
+  "name": "election-mentor-ai",
+  "version": "1.0.0",
+  "description": "Election Mentor AI - Interactive voting guide with AI-powered assistance",
+  "main": "index.html",
+  "scripts": {
+    "test": "jest --verbose --coverage",
+    "test:watch": "jest --watch",
+    "start": "npx http-server . -p 8080"
+  },
+  "keywords": [
+    "election",
+    "voting",
+    "civic-tech",
+    "AI",
+    "education"
+  ],
+  "author": "Vaishnavi",
+  "license": "MIT",
+  "devDependencies": {
+    "jest": "^29.7.0"
+  }
+}

@@ -2,13 +2,13 @@
 
 describe('Accessibility & Core Features', () => {
   test('Dashboard loads successfully with correct header', () => {
-    const title = "Welcome back, Aarav!";
+    const title = "Welcome back, Vaishnavi!";
     expect(title).toContain("Welcome back");
   });
 
   test('Voter profile info renders correctly', () => {
-    const profile = { name: "Aarav Sharma", location: "Maharashtra" };
-    expect(profile.name).toBe("Aarav Sharma");
+    const profile = { name: "Vaishnavi", location: "Maharashtra" };
+    expect(profile.name).toBe("Vaishnavi");
     expect(profile.location).toBe("Maharashtra");
   });
 

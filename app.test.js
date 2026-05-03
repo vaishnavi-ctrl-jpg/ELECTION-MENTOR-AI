@@ -272,8 +272,8 @@ describe('Efficiency Tests (File-Level)', () => {
     expect(fs.existsSync(path.join(__dirname, 'scaca.png'))).toBe(false);
   });
 
-  test('building_asset.png is under 100KB', () => {
-    const stats = fs.statSync(path.join(__dirname, 'building_asset.png'));
+  test('building_asset.webp is under 100KB', () => {
+    const stats = fs.statSync(path.join(__dirname, 'building_asset.webp'));
     expect(stats.size).toBeLessThan(100000);
   });
 

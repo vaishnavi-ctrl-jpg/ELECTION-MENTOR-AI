@@ -49,19 +49,40 @@ Our architecture is purely static, lightweight, and containerized on high-perfor
 
 ---
 
-### Application Core Topology
+### 📊 Application Topology & End-to-End Flow
 
 ```mermaid
 graph TD
-    User([User's Browser Session]) -->|HTTPS| Nginx[Secure Alpine Nginx Proxy Server]
-    Nginx -->|Delivers Optimized Content| HTML[HTML5 / CSS3 Layouts]
-    HTML -->|Dynamic Interaction Engine| SharedJS[Shared Modular Core app.js]
+    %% Base Tier
+    User([🌐 End User Session]) -->|HTTPS Request| CDN[☁️ Cloud Run Edge / CDN]
+    CDN -->|Load Balanced Traffic| Nginx[🐋 Dockerized Nginx Alpine Server]
     
-    subgraph Data & Telemetry Matrix
-        SharedJS -->|Local Persistence| Storage[(Client LocalStorage)]
-        SharedJS -->|Cloud Sync| Firebase[(Firebase Serverless Auth / DB)]
-        SharedJS -->|Events Tracking| GAnalytics[Analytics Tracking Engine]
-        SharedJS -->|Accessibility Widget| GTranslate[Translation Translation Engine]
+    %% Nginx Layer
+    subgraph Static Delivery Sandbox
+        Nginx -->|Gzipped Delivery| WebAsset["📦 Static Web Core<br/>(HTML5 / CSS3 / ES6+)"]
+    end
+    
+    %% Core Client Runtime
+    WebAsset -->|Hydrates DOM| AppJS["🧠 Modular app.js<br/>(Navigation, UI Logic & State)"]
+    
+    %% Dynamic Feature Matrix
+    subgraph Client State & Serverless APIs
+        AppJS -->|Persistent State| Cache[💾 Browser LocalStorage]
+        AppJS -->|Secured Sync| DB[(🔥 Google Cloud Firestore / Firebase)]
+        AppJS -->|Translations| i18n[🌐 Google Translate Dynamic API]
+        AppJS -->|Analytics Telemetry| Metrics[📈 Google Analytics SDK]
+    end
+    
+    %% Journey Simulation Engine
+    subgraph Voter Simulation & Onboarding Pipeline
+        AppJS -->|Step 1| Onboard1["🪪 Age & Eligibility Checks"]
+        Onboard1 -->|Step 2| Onboard2["📍 Location & State Tracking"]
+        Onboard2 -->|Step 3| Onboard3["🗳️ Voter Type Classification"]
+        Onboard3 -->|Simulation Engine| Sim["🏗️ Realistic Polling Journey"]
+        Sim -->|Mode 1| BEntry[🚶 Queue / Booth Entry]
+        BEntry -->|Mode 2| IDCheck[🆔 Voter Registration Check]
+        IDCheck -->|Mode 3| EVM[📟 Digital EVM Interactive Voting]
+        EVM -->|Mode 4| Ink[✍️ Virtual Ink Marking Done]
     end
 ```
 

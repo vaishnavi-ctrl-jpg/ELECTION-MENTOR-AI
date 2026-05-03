@@ -3,17 +3,51 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Election Mentor AI</title>
+    <meta name="description" content="Election Mentor AI - Your intelligent guide to the voting process. Get personalized election readiness scores, simulate voting, and track important dates.">
+    <meta name="theme-color" content="#0f1016">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Election Mentor AI - Smart Voting Guide</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Google Analytics (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-PLACEHOLDER"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-PLACEHOLDER');
+    </script>
+
+    <!-- Firebase -->
+    <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-analytics-compat.js"></script>
+    <script>
+      const firebaseConfig = {
+        apiKey: "AIzaSyPlaceholder",
+        authDomain: "election-mentor-ai.firebaseapp.com",
+        projectId: "election-mentor-ai",
+        storageBucket: "election-mentor-ai.appspot.com",
+        messagingSenderId: "558682473517",
+        appId: "1:558682473517:web:placeholder"
+      };
+      const app = firebase.initializeApp(firebaseConfig);
+      const analytics = firebase.analytics();
+      const db = firebase.firestore();
+      const auth = firebase.auth();
+    </script>
 </head>
 <body>
-    <div class="app-container">
+    <!-- Skip Navigation for Accessibility -->
+    <a href="#main-content" class="skip-link" style="position:absolute;top:-40px;left:0;background:#7033ff;color:#fff;padding:8px 16px;z-index:10000;transition:top 0.3s;" onfocus="this.style.top='0'" onblur="this.style.top='-40px'">Skip to main content</a>
+    <div class="app-container" role="application">
         <!-- Sidebar -->
-        <aside class="sidebar">
+        <aside class="sidebar" role="navigation" aria-label="Main Navigation">
             <div class="logo-section">
                 <div class="logo-icon">
                     <i class="fa-solid fa-cube"></i>
@@ -67,7 +101,7 @@
         </aside>
 
         <!-- Main Content -->
-        <main class="main-content">
+        <main class="main-content" id="main-content" role="main" aria-label="Dashboard Content">
             <!-- Top Bar -->
             <header class="top-bar">
                 <div class="welcome-message">

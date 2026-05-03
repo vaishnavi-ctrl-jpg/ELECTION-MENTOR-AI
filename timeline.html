@@ -3,17 +3,30 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Timeline - Election Mentor AI. Stay updated with important election dates and deadlines.">
+    <meta name="theme-color" content="#0f1016">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Timeline - Election Mentor AI</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-PLACEHOLDER"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-PLACEHOLDER');
+    </script>
 </head>
 <body>
-    <div class="app-container">
+    <a href="#main-content" class="skip-link" style="position:absolute;top:-40px;left:0;background:#7033ff;color:#fff;padding:8px 16px;z-index:10000;transition:top 0.3s;" onfocus="this.style.top='0'" onblur="this.style.top='-40px'">Skip to main content</a>
+    <div class="app-container" role="application">
         <!-- Sidebar -->
-        <aside class="sidebar">
+        <aside class="sidebar" role="navigation" aria-label="Main Navigation">
             <div class="logo-section">
                 <div class="logo-icon">
                     <i class="fa-solid fa-cube"></i>
@@ -67,7 +80,7 @@
         </aside>
 
         <!-- Main Content -->
-        <main class="main-content">
+        <main class="main-content" id="main-content" role="main">
             <!-- Top Bar -->
             <header class="top-bar">
                 <div class="welcome-message">
@@ -80,7 +93,7 @@
                         <span class="badge"></span>
                     </button>
                     <div class="user-profile">
-                        <img src="https://ui-avatars.com/api/?name=Aarav+Sharma&background=random" alt="Aarav Sharma">
+                        <img loading="lazy" src="https://ui-avatars.com/api/?name=Aarav+Sharma&background=random" alt="Aarav Sharma">
                         <div class="user-info">
                             <span class="user-name">Aarav Sharma</span>
                             <span class="user-location">Maharashtra</span>
@@ -158,7 +171,7 @@
 
                 <!-- Right Side: CTA / Space for Calendar Asset -->
                 <div class="timeline-cta-section" style="background: none; border: none; box-shadow: none; display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 24px;">
-                    <img src="calender_asset.png" alt="Calendar" style="width: 330px; height: auto; margin-top: -20px; object-fit: contain;">
+                    <img loading="lazy" src="calender_asset.png" alt="Calendar" style="width: 330px; height: auto; margin-top: -20px; object-fit: contain;">
                     <div class="cta-message" style="text-align: center; display: flex; flex-direction: column; align-items: center; gap: 12px;">
                         <h3 style="font-size: 20px; font-weight: 700; color: #fff; margin: 0;">Don't miss out!</h3>
                         <p style="font-size: 15px; color: var(--secondary-text); margin: 0; line-height: 1.4;">Add these dates<br>to your calendar.</p>

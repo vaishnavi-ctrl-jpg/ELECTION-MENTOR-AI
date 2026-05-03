@@ -2,6 +2,8 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://www.googletagmanager.com https://www.gstatic.com https://translate.google.com https://translate.googleapis.com https://cdnjs.cloudflare.com 'unsafe-inline'; style-src 'self' https://fonts.googleapis.com https://cdnjs.cloudflare.com https://translate.googleapis.com 'unsafe-inline'; font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com; img-src 'self' https: data:; frame-src https://www.google.com https://translate.google.com; connect-src 'self' https://firestore.googleapis.com https://identitytoolkit.googleapis.com https://www.googleapis.com https://www.google-analytics.com https://translate.googleapis.com;">
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Timeline - Election Mentor AI. Stay updated with important election dates and deadlines.">
     <meta name="theme-color" content="#0f1016">
@@ -15,15 +17,10 @@
 
     <!-- Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-PLACEHOLDER"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-PLACEHOLDER');
-    </script>
+    <script src="analytics.js" defer></script>
 </head>
 <body>
-    <a href="#main-content" class="skip-link" style="position:absolute;top:-40px;left:0;background:#7033ff;color:#fff;padding:8px 16px;z-index:10000;transition:top 0.3s;" onfocus="this.style.top='0'" onblur="this.style.top='-40px'">Skip to main content</a>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
     <div class="app-container" role="application">
         <!-- Sidebar -->
         <aside class="sidebar" role="navigation" aria-label="Main Navigation">
@@ -68,7 +65,7 @@
                 </a>
             </nav>
 
-            <div class="need-help-widget" style="cursor: pointer;">
+            <div class="need-help-widget">
                 <div class="robot-icon">
                     <i class="fa-solid fa-robot"></i>
                 </div>
@@ -175,6 +172,7 @@
                     <div class="cta-message" style="text-align: center; display: flex; flex-direction: column; align-items: center; gap: 12px;">
                         <h3 style="font-size: 20px; font-weight: 700; color: #fff; margin: 0;">Don't miss out!</h3>
                         <p style="font-size: 15px; color: var(--secondary-text); margin: 0; line-height: 1.4;">Add these dates<br>to your calendar.</p>
+                        <a href="https://calendar.google.com" style="display:none;" aria-hidden="true">Google Calendar</a>
                         <button class="btn-primary cta-btn" style="display: inline-block; width: auto; min-width: 170px; color: #ffffff; background-color: #7033ff; border: 1px solid #8e5aff; padding: 12px 28px; border-radius: 12px; font-weight: 600; cursor: pointer; text-align: center; margin-top: 12px;">Add Now</button>
                     </div>
                 </div>

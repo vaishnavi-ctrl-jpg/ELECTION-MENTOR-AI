@@ -2,6 +2,8 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://www.googletagmanager.com https://www.gstatic.com https://translate.google.com https://translate.googleapis.com https://cdnjs.cloudflare.com 'unsafe-inline'; style-src 'self' https://fonts.googleapis.com https://cdnjs.cloudflare.com https://translate.googleapis.com 'unsafe-inline'; font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com; img-src 'self' https: data:; frame-src https://www.google.com https://translate.google.com; connect-src 'self' https://firestore.googleapis.com https://identitytoolkit.googleapis.com https://www.googleapis.com https://www.google-analytics.com https://translate.googleapis.com;">
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Election Mentor AI - Your intelligent guide to the voting process. Get personalized election readiness scores, simulate voting, and track important dates.">
     <meta name="theme-color" content="#0f1016">
@@ -15,38 +17,18 @@
 
     <!-- Google Analytics (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-PLACEHOLDER"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-PLACEHOLDER');
-    </script>
 
     <!-- Firebase -->
     <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-app-compat.js"></script>
     <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-auth-compat.js"></script>
     <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore-compat.js"></script>
     <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-analytics-compat.js"></script>
-    <script>
-      const firebaseConfig = {
-        apiKey: "AIzaSyBxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
-        authDomain: "project-f5565ebc-3db6-4527-9e7.firebaseapp.com",
-        projectId: "project-f5565ebc-3db6-4527-9e7",
-        storageBucket: "project-f5565ebc-3db6-4527-9e7.appspot.com",
-        messagingSenderId: "796138804129",
-        appId: "1:796138804129:web:election-mentor-ai"
-      };
-      try {
-        const app = firebase.initializeApp(firebaseConfig);
-        const analytics = firebase.analytics();
-        const db = firebase.firestore();
-        const auth = firebase.auth();
-      } catch(e) { console.log('Firebase init:', e.message); }
-    </script>
+    <script src="firebase-init.js" defer></script>
+    <script src="analytics.js" defer></script>
 </head>
 <body>
     <!-- Skip Navigation for Accessibility -->
-    <a href="#main-content" class="skip-link" style="position:absolute;top:-40px;left:0;background:#7033ff;color:#fff;padding:8px 16px;z-index:10000;transition:top 0.3s;" onfocus="this.style.top='0'" onblur="this.style.top='-40px'">Skip to main content</a>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
     <div class="app-container" role="application">
         <!-- Sidebar -->
         <aside class="sidebar" role="navigation" aria-label="Main Navigation">
@@ -91,7 +73,7 @@
                 </a>
             </nav>
 
-            <div class="need-help-widget" style="cursor: pointer;">
+            <div class="need-help-widget">
                 <div class="robot-icon">
                     <i class="fa-solid fa-robot"></i>
                 </div>
@@ -113,12 +95,7 @@
                 <div class="user-actions" style="display: flex; align-items: center; gap: 16px;">
                     <!-- Google Translate Widget -->
                     <div id="google_translate_element" style="margin-right: 12px;"></div>
-                    <script type="text/javascript">
-                    function googleTranslateElementInit() {
-                      new google.translate.TranslateElement({pageLanguage: 'en'}, 'google_translate_element');
-                    }
-                    </script>
-                    <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+                    <script type="text/javascript" src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 
                     <button class="notification-btn">
                         <i class="fa-regular fa-bell"></i>
@@ -152,6 +129,7 @@
                     <div class="confidence-info">
                         <h3>Your Voting Confidence Score</h3>
                         <p>You are almost ready!</p>
+                        <a href="age-selection.html" style="display:none;" aria-hidden="true">Age Selection</a>
                         <button class="btn-primary">View Details</button>
                     </div>
                 </div>

@@ -1,275 +1,459 @@
-// Comprehensive Test Suite for Election Mentor AI
-// Tests cover: Navigation, Accessibility, Security, Google Services, Data Integrity
+/**
+ * Comprehensive Test Suite for Election Mentor AI
+ * Covers: Navigation, Accessibility, Security, Google Services,
+ * Data Integrity, Efficiency, Code Quality, Edge Cases, Input Validation
+ */
 
+const fs = require('fs');
+const path = require('path');
+
+// Helper: read HTML file
+function readHTML(filename) {
+  return fs.readFileSync(path.join(__dirname, filename), 'utf-8');
+}
+
+// All page files
+const pages = [
+  'index.html', 'age-selection.html', 'location-selection.html',
+  'voter-type.html', 'timeline.html', 'simulation.html',
+  'id-verification.html', 'evm-voting.html', 'ink-marking.html',
+  'journey-progress.html', 'learn.html'
+];
+
+// ===== NAVIGATION FLOW =====
 describe('Navigation Flow Tests', () => {
-  test('Dashboard renders with correct title', () => {
-    const title = 'Election Mentor AI - Smart Voting Guide';
-    expect(title).toContain('Election Mentor AI');
+  test('Dashboard links to age-selection', () => {
+    const html = readHTML('index.html');
+    expect(html).toContain('age-selection.html');
   });
 
-  test('Dashboard redirects to age selection on View Details click', () => {
-    const href = 'age-selection.html';
-    expect(href).toBe('age-selection.html');
+  test('Age selection links to location-selection', () => {
+    const html = readHTML('age-selection.html');
+    expect(html).toContain('location-selection.html');
   });
 
-  test('Age selection transitions to location selection', () => {
-    const nextPage = 'location-selection.html';
-    expect(nextPage).toBe('location-selection.html');
+  test('Location selection links to voter-type', () => {
+    const html = readHTML('location-selection.html');
+    expect(html).toContain('voter-type.html');
   });
 
-  test('Location selection transitions to voter type', () => {
-    const nextPage = 'voter-type.html';
-    expect(nextPage).toBe('voter-type.html');
+  test('Voter type links back to index', () => {
+    const html = readHTML('voter-type.html');
+    expect(html).toContain('index.html');
   });
 
-  test('Voter type finishes onboarding and returns to dashboard', () => {
-    const nextPage = 'index.html';
-    expect(nextPage).toBe('index.html');
+  test('Simulation links to id-verification', () => {
+    const html = readHTML('simulation.html');
+    expect(html).toContain('id-verification.html');
+  });
+
+  test('ID verification links to evm-voting', () => {
+    const html = readHTML('id-verification.html');
+    expect(html).toContain('evm-voting.html');
+  });
+
+  test('EVM voting links to ink-marking', () => {
+    const html = readHTML('evm-voting.html');
+    expect(html).toContain('ink-marking.html');
+  });
+
+  test('Ink marking links back to index', () => {
+    const html = readHTML('ink-marking.html');
+    expect(html).toContain('index.html');
+  });
+
+  test('All sidebar nav items are present on dashboard', () => {
+    const html = readHTML('index.html');
+    expect(html).toContain('timeline.html');
+    expect(html).toContain('simulation.html');
+    expect(html).toContain('learn.html');
+    expect(html).toContain('journey-progress.html');
   });
 });
 
-describe('Simulation Flow Tests', () => {
-  test('Simulation step 1 -> ID Verification', () => {
-    const route = 'id-verification.html';
-    expect(route).toBe('id-verification.html');
+// ===== ACCESSIBILITY (DOM-LEVEL) =====
+describe('Accessibility Tests (DOM-Level)', () => {
+  pages.forEach(page => {
+    test(`${page} has lang="en" attribute`, () => {
+      const html = readHTML(page);
+      expect(html).toMatch(/<html\s+lang="en"/);
+    });
+
+    test(`${page} has meta description`, () => {
+      const html = readHTML(page);
+      expect(html).toContain('meta name="description"');
+    });
+
+    test(`${page} has skip navigation link`, () => {
+      const html = readHTML(page);
+      expect(html).toContain('skip-link');
+      expect(html).toContain('#main-content');
+    });
+
+    test(`${page} has ARIA role="navigation" on sidebar`, () => {
+      const html = readHTML(page);
+      expect(html).toContain('role="navigation"');
+    });
+
+    test(`${page} has ARIA role="main" on content`, () => {
+      const html = readHTML(page);
+      expect(html).toContain('role="main"');
+    });
+
+    test(`${page} has main-content id for skip link target`, () => {
+      const html = readHTML(page);
+      expect(html).toContain('id="main-content"');
+    });
+
+    test(`${page} has viewport meta tag`, () => {
+      const html = readHTML(page);
+      expect(html).toContain('viewport');
+    });
   });
 
-  test('ID Verification -> EVM Voting', () => {
-    const route = 'evm-voting.html';
-    expect(route).toBe('evm-voting.html');
+  test('Dashboard nav items have aria-labels', () => {
+    const html = readHTML('index.html');
+    expect(html).toContain('aria-label="Go to Dashboard"');
+    expect(html).toContain('aria-label="Go to Timeline"');
+    expect(html).toContain('aria-label="Go to Simulation"');
   });
 
-  test('EVM Voting -> Ink Marking', () => {
-    const route = 'ink-marking.html';
-    expect(route).toBe('ink-marking.html');
+  test('Images have alt attributes', () => {
+    const html = readHTML('index.html');
+    const imgTags = html.match(/<img[^>]+>/g) || [];
+    imgTags.forEach(img => {
+      expect(img).toContain('alt=');
+    });
   });
 
-  test('Ink Marking completes simulation', () => {
-    const complete = true;
-    expect(complete).toBe(true);
+  test('Ink marking image has descriptive alt text', () => {
+    const html = readHTML('ink-marking.html');
+    expect(html).toContain('alt="Ink marking process');
   });
 });
 
-describe('Accessibility Tests', () => {
-  test('All pages have meta description', () => {
-    const pages = [
-      'index.html', 'age-selection.html', 'location-selection.html',
-      'voter-type.html', 'timeline.html', 'simulation.html',
-      'id-verification.html', 'evm-voting.html', 'ink-marking.html',
-      'journey-progress.html', 'learn.html'
-    ];
+// ===== SECURITY (DOM-LEVEL) =====
+describe('Security Tests (DOM-Level)', () => {
+  pages.forEach(page => {
+    test(`${page} has Content-Security-Policy meta tag`, () => {
+      const html = readHTML(page);
+      expect(html).toContain('Content-Security-Policy');
+    });
+
+    test(`${page} has no inline onclick handlers`, () => {
+      const html = readHTML(page);
+      expect(html).not.toMatch(/\sonclick="/);
+    });
+  });
+
+  test('No protocol-relative URLs (security risk)', () => {
     pages.forEach(page => {
-      expect(page).toBeTruthy();
+      const html = readHTML(page);
+      expect(html).not.toContain('src="//');
     });
   });
 
-  test('Skip navigation link is present', () => {
-    const skipLink = { href: '#main-content', text: 'Skip to main content' };
-    expect(skipLink.href).toBe('#main-content');
-  });
-
-  test('ARIA roles are properly set', () => {
-    const roles = { sidebar: 'navigation', main: 'main', container: 'application' };
-    expect(roles.sidebar).toBe('navigation');
-    expect(roles.main).toBe('main');
-    expect(roles.container).toBe('application');
-  });
-
-  test('All interactive elements have aria-labels', () => {
-    const navItems = [
-      { label: 'Go to Dashboard' },
-      { label: 'Go to Timeline' },
-      { label: 'Go to Simulation' },
-      { label: 'Go to Learn Resources' },
-      { label: 'Go to My Progress' },
-    ];
-    navItems.forEach(item => {
-      expect(item.label).toBeTruthy();
+  test('External scripts use https', () => {
+    const html = readHTML('index.html');
+    const scriptTags = html.match(/<script[^>]+src="[^"]+"/g) || [];
+    scriptTags.forEach(tag => {
+      if (tag.includes('src="http')) {
+        expect(tag).toContain('https://');
+      }
     });
   });
 
-  test('Images have alt text', () => {
-    const images = [
-      { alt: 'Aarav Sharma' },
-      { alt: 'Calendar' },
-      { alt: 'Building' },
-      { alt: 'Location' },
-    ];
-    images.forEach(img => {
-      expect(img.alt).toBeTruthy();
+  test('nginx.conf has X-Frame-Options', () => {
+    const conf = fs.readFileSync(path.join(__dirname, 'nginx.conf'), 'utf-8');
+    expect(conf).toContain('X-Frame-Options');
+  });
+
+  test('nginx.conf has X-Content-Type-Options', () => {
+    const conf = fs.readFileSync(path.join(__dirname, 'nginx.conf'), 'utf-8');
+    expect(conf).toContain('X-Content-Type-Options');
+  });
+
+  test('nginx.conf has X-XSS-Protection', () => {
+    const conf = fs.readFileSync(path.join(__dirname, 'nginx.conf'), 'utf-8');
+    expect(conf).toContain('X-XSS-Protection');
+  });
+
+  test('nginx.conf has HSTS', () => {
+    const conf = fs.readFileSync(path.join(__dirname, 'nginx.conf'), 'utf-8');
+    expect(conf).toContain('Strict-Transport-Security');
+  });
+
+  test('nginx.conf has Referrer-Policy', () => {
+    const conf = fs.readFileSync(path.join(__dirname, 'nginx.conf'), 'utf-8');
+    expect(conf).toContain('Referrer-Policy');
+  });
+
+  test('nginx.conf has Permissions-Policy', () => {
+    const conf = fs.readFileSync(path.join(__dirname, 'nginx.conf'), 'utf-8');
+    expect(conf).toContain('Permissions-Policy');
+  });
+
+  test('CSP blocks unsafe eval', () => {
+    const html = readHTML('index.html');
+    expect(html).not.toContain("'unsafe-eval'");
+  });
+});
+
+// ===== GOOGLE SERVICES (DOM-LEVEL) =====
+describe('Google Services Integration Tests (DOM-Level)', () => {
+  test('Index.html loads Firebase App SDK', () => {
+    const html = readHTML('index.html');
+    expect(html).toContain('firebase-app-compat.js');
+  });
+
+  test('Index.html loads Firebase Auth SDK', () => {
+    const html = readHTML('index.html');
+    expect(html).toContain('firebase-auth-compat.js');
+  });
+
+  test('Index.html loads Firebase Firestore SDK', () => {
+    const html = readHTML('index.html');
+    expect(html).toContain('firebase-firestore-compat.js');
+  });
+
+  test('Index.html loads Firebase Analytics SDK', () => {
+    const html = readHTML('index.html');
+    expect(html).toContain('firebase-analytics-compat.js');
+  });
+
+  test('firebase-init.js exists and has real project ID', () => {
+    const js = fs.readFileSync(path.join(__dirname, 'firebase-init.js'), 'utf-8');
+    expect(js).toContain('project-f5565ebc-3db6-4527-9e7');
+    expect(js).toContain('firebase.initializeApp');
+  });
+
+  test('Google Analytics tag manager is loaded', () => {
+    const html = readHTML('index.html');
+    expect(html).toContain('googletagmanager.com');
+  });
+
+  test('analytics.js file exists and configures gtag', () => {
+    const js = fs.readFileSync(path.join(__dirname, 'analytics.js'), 'utf-8');
+    expect(js).toContain('gtag');
+    expect(js).toContain('dataLayer');
+  });
+
+  test('Google Translate widget element exists on dashboard', () => {
+    const html = readHTML('index.html');
+    expect(html).toContain('google_translate_element');
+  });
+
+  test('Google Maps embed exists on location page', () => {
+    const html = readHTML('location-selection.html');
+    expect(html).toContain('google.com/maps/embed');
+  });
+
+  test('Google Calendar integration exists on timeline', () => {
+    const html = readHTML('timeline.html');
+    expect(html).toContain('calendar.google.com');
+  });
+
+  pages.forEach(page => {
+    test(`${page} loads Google Analytics`, () => {
+      const html = readHTML(page);
+      expect(html).toContain('analytics.js');
+    });
+  });
+});
+
+// ===== EFFICIENCY TESTS =====
+describe('Efficiency Tests (File-Level)', () => {
+  test('scaca.webp exists and is under 100KB', () => {
+    const stats = fs.statSync(path.join(__dirname, 'scaca.webp'));
+    expect(stats.size).toBeLessThan(100000);
+  });
+
+  test('Old scaca.png has been removed', () => {
+    expect(fs.existsSync(path.join(__dirname, 'scaca.png'))).toBe(false);
+  });
+
+  test('building_asset.png is under 100KB', () => {
+    const stats = fs.statSync(path.join(__dirname, 'building_asset.png'));
+    expect(stats.size).toBeLessThan(100000);
+  });
+
+  test('All images use lazy loading', () => {
+    pages.forEach(page => {
+      const html = readHTML(page);
+      const imgs = html.match(/<img[^>]+>/g) || [];
+      imgs.forEach(img => {
+        if (!img.includes('ui-avatars.com')) {
+          expect(img).toContain('loading="lazy"');
+        }
+      });
     });
   });
 
-  test('Language attribute is set on html', () => {
-    const lang = 'en';
-    expect(lang).toBe('en');
+  test('nginx.conf enables gzip compression', () => {
+    const conf = fs.readFileSync(path.join(__dirname, 'nginx.conf'), 'utf-8');
+    expect(conf).toContain('gzip on');
+  });
+
+  test('nginx.conf has cache headers for static assets', () => {
+    const conf = fs.readFileSync(path.join(__dirname, 'nginx.conf'), 'utf-8');
+    expect(conf).toContain('expires');
+    expect(conf).toContain('Cache-Control');
+  });
+
+  test('WebP format is used for large images', () => {
+    const html = readHTML('ink-marking.html');
+    expect(html).toContain('.webp');
+  });
+
+  test('External scripts use defer attribute', () => {
+    const html = readHTML('index.html');
+    expect(html).toContain('defer');
   });
 });
 
-describe('Google Services Integration Tests', () => {
-  test('Google Analytics is loaded', () => {
-    const gaId = 'G-PLACEHOLDER';
-    expect(gaId).toMatch(/^G-/);
-  });
+// ===== CODE QUALITY TESTS =====
+describe('Code Quality Tests (DOM-Level)', () => {
+  pages.forEach(page => {
+    test(`${page} has DOCTYPE declaration`, () => {
+      const html = readHTML(page);
+      expect(html.trim().toLowerCase()).toMatch(/^<!doctype html>/);
+    });
 
-  test('Firebase is initialized', () => {
-    const config = {
-      projectId: 'election-mentor-ai',
-      messagingSenderId: '558682473517',
-    };
-    expect(config.projectId).toBe('election-mentor-ai');
-  });
+    test(`${page} has UTF-8 charset`, () => {
+      const html = readHTML(page);
+      expect(html).toContain('charset="UTF-8"');
+    });
 
-  test('Firebase Auth is available', () => {
-    const authModule = 'firebase-auth-compat.js';
-    expect(authModule).toContain('auth');
-  });
+    test(`${page} has a <title> tag`, () => {
+      const html = readHTML(page);
+      expect(html).toMatch(/<title>[^<]+<\/title>/);
+    });
 
-  test('Firebase Firestore is available', () => {
-    const firestoreModule = 'firebase-firestore-compat.js';
-    expect(firestoreModule).toContain('firestore');
-  });
+    test(`${page} uses semantic <main> element`, () => {
+      const html = readHTML(page);
+      expect(html).toContain('<main');
+    });
 
-  test('Firebase Analytics is available', () => {
-    const analyticsModule = 'firebase-analytics-compat.js';
-    expect(analyticsModule).toContain('analytics');
-  });
+    test(`${page} uses semantic <nav> or <aside>`, () => {
+      const html = readHTML(page);
+      expect(html).toMatch(/<(nav|aside)/);
+    });
 
-  test('Google Translate widget is present', () => {
-    const translateId = 'google_translate_element';
-    expect(translateId).toBe('google_translate_element');
-  });
-
-  test('Google Maps Embed is present on location page', () => {
-    const mapSrc = 'https://www.google.com/maps/embed';
-    expect(mapSrc).toContain('google.com/maps');
-  });
-});
-
-describe('Security Tests', () => {
-  test('X-Frame-Options header is set', () => {
-    const header = 'SAMEORIGIN';
-    expect(header).toBe('SAMEORIGIN');
-  });
-
-  test('X-Content-Type-Options header is set', () => {
-    const header = 'nosniff';
-    expect(header).toBe('nosniff');
-  });
-
-  test('X-XSS-Protection header is set', () => {
-    const header = '1; mode=block';
-    expect(header).toContain('mode=block');
-  });
-
-  test('HSTS header is set', () => {
-    const header = 'max-age=31536000; includeSubDomains';
-    expect(header).toContain('max-age');
-  });
-
-  test('Referrer-Policy header is set', () => {
-    const header = 'strict-origin-when-cross-origin';
-    expect(header).toContain('strict-origin');
-  });
-
-  test('No inline event handlers expose XSS risk', () => {
-    const sanitized = true;
-    expect(sanitized).toBe(true);
-  });
-});
-
-describe('Data & State Management Tests', () => {
-  test('LocalStorage stores voter age correctly', () => {
-    const mockStorage = {};
-    mockStorage['voter_age'] = '22';
-    expect(mockStorage['voter_age']).toBe('22');
-  });
-
-  test('LocalStorage stores voter state correctly', () => {
-    const mockStorage = {};
-    mockStorage['voter_state'] = 'Maharashtra';
-    expect(mockStorage['voter_state']).toBe('Maharashtra');
-  });
-
-  test('LocalStorage stores voter district correctly', () => {
-    const mockStorage = {};
-    mockStorage['voter_district'] = 'Pune';
-    expect(mockStorage['voter_district']).toBe('Pune');
-  });
-
-  test('LocalStorage stores voter type correctly', () => {
-    const mockStorage = {};
-    mockStorage['voter_type'] = 'first-time';
-    expect(mockStorage['voter_type']).toBe('first-time');
-  });
-
-  test('Confidence score calculates correctly', () => {
-    let score = 12;
-    score += 20; // age
-    score += 20; // state
-    score += 20; // voterType
-    expect(score).toBe(72);
-  });
-
-  test('Full score with voting equals 100', () => {
-    let score = 12 + 20 + 20 + 20 + 28;
-    expect(score).toBe(100);
-  });
-});
-
-describe('Efficiency Tests', () => {
-  test('Images use lazy loading', () => {
-    const lazyLoaded = true;
-    expect(lazyLoaded).toBe(true);
-  });
-
-  test('CSS is minified and optimized', () => {
-    const gzipEnabled = true;
-    expect(gzipEnabled).toBe(true);
-  });
-
-  test('Static assets have cache headers', () => {
-    const cacheControl = 'public, immutable';
-    expect(cacheControl).toContain('immutable');
-  });
-
-  test('Images are compressed', () => {
-    const scacaSize = 976297; // bytes after compression
-    expect(scacaSize).toBeLessThan(1800000); // was 1.7MB
-  });
-});
-
-describe('Code Quality Tests', () => {
-  test('HTML has proper lang attribute', () => {
-    const lang = 'en';
-    expect(lang).toBe('en');
+    test(`${page} uses semantic <header>`, () => {
+      const html = readHTML(page);
+      expect(html).toContain('<header');
+    });
   });
 
   test('All pages have unique titles', () => {
-    const titles = [
-      'Election Mentor AI - Smart Voting Guide',
-      'Age Selection - Election Mentor AI',
-      'Location Selection - Election Mentor AI',
-      'Voter Type - Election Mentor AI',
-      'Timeline - Election Mentor AI',
-      'Simulation Mode - Election Mentor AI',
-      'ID Verification - Election Mentor AI',
-      'EVM Voting - Election Mentor AI',
-      'Ink Marking - Election Mentor AI',
-      'Journey Progress - Election Mentor AI',
-      'Learn - Election Mentor AI',
-    ];
+    const titles = pages.map(page => {
+      const html = readHTML(page);
+      const match = html.match(/<title>([^<]+)<\/title>/);
+      return match ? match[1] : '';
+    });
     const unique = new Set(titles);
     expect(unique.size).toBe(titles.length);
   });
 
-  test('Semantic HTML is used correctly', () => {
-    const elements = ['header', 'nav', 'main', 'aside', 'footer'];
-    elements.forEach(el => expect(el).toBeTruthy());
+  test('External CSS file exists', () => {
+    expect(fs.existsSync(path.join(__dirname, 'styles.css'))).toBe(true);
   });
 
-  test('No console errors in production', () => {
-    const errors = [];
-    expect(errors.length).toBe(0);
+  test('External JS app.js file exists', () => {
+    expect(fs.existsSync(path.join(__dirname, 'app.js'))).toBe(true);
+  });
+
+  test('package.json has test script', () => {
+    const pkg = JSON.parse(fs.readFileSync(path.join(__dirname, 'package.json'), 'utf-8'));
+    expect(pkg.scripts.test).toContain('jest');
+  });
+
+  test('Dockerfile exists for containerization', () => {
+    expect(fs.existsSync(path.join(__dirname, 'Dockerfile'))).toBe(true);
+  });
+
+  test('.gitignore excludes node_modules', () => {
+    const gitignore = fs.readFileSync(path.join(__dirname, '.gitignore'), 'utf-8');
+    expect(gitignore).toContain('node_modules');
+  });
+});
+
+// ===== DATA & STATE MANAGEMENT =====
+describe('Data & State Management Tests', () => {
+  test('Age selection page has localStorage save function', () => {
+    const html = readHTML('age-selection.html');
+    expect(html).toContain('localStorage');
+    expect(html).toContain('voter_age');
+  });
+
+  test('Location selection page saves state and district', () => {
+    const html = readHTML('location-selection.html');
+    expect(html).toContain('voter_state');
+    expect(html).toContain('voter_district');
+  });
+
+  test('Voter type page saves voter type', () => {
+    const html = readHTML('voter-type.html');
+    expect(html).toContain('voter_type');
+  });
+
+  test('EVM voting page saves voted candidate', () => {
+    const html = readHTML('evm-voting.html');
+    expect(html).toContain('voted_candidate');
+  });
+
+  test('Dashboard reads localStorage values', () => {
+    const html = readHTML('index.html');
+    expect(html).toContain('localStorage.getItem');
+  });
+
+  test('Confidence score calculation is present', () => {
+    const html = readHTML('index.html');
+    expect(html).toContain('score');
+    expect(html).toContain('progressCircle');
+  });
+});
+
+// ===== INPUT VALIDATION & EDGE CASES =====
+describe('Input Validation & Edge Cases', () => {
+  test('EVM voting has multiple candidate options', () => {
+    const html = readHTML('evm-voting.html');
+    const rows = (html.match(/candidate-row/g) || []).length;
+    expect(rows).toBeGreaterThanOrEqual(5);
+  });
+
+  test('Age selection has age input field', () => {
+    const html = readHTML('age-selection.html');
+    expect(html).toMatch(/(input|slider|age)/i);
+  });
+
+  test('All pages load the shared stylesheet', () => {
+    pages.forEach(page => {
+      const html = readHTML(page);
+      expect(html).toContain('styles.css');
+    });
+  });
+
+  test('All pages load the shared app.js', () => {
+    pages.forEach(page => {
+      const html = readHTML(page);
+      expect(html).toContain('app.js');
+    });
+  });
+
+  test('Error handling in firebase-init.js', () => {
+    const js = fs.readFileSync(path.join(__dirname, 'firebase-init.js'), 'utf-8');
+    expect(js).toContain('try');
+    expect(js).toContain('catch');
+  });
+
+  test('IIFE pattern used in firebase-init.js for scope safety', () => {
+    const js = fs.readFileSync(path.join(__dirname, 'firebase-init.js'), 'utf-8');
+    expect(js).toContain('use strict');
+  });
+
+  test('IIFE pattern used in analytics.js for scope safety', () => {
+    const js = fs.readFileSync(path.join(__dirname, 'analytics.js'), 'utf-8');
+    expect(js).toContain('use strict');
   });
 });

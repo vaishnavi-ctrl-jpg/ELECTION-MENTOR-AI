@@ -68,7 +68,7 @@
                 </a>
             </nav>
 
-            <div class="need-help-widget" onclick="window.location.href='index.html?chat=true'" style="cursor: pointer;">
+            <div class="need-help-widget" style="cursor: pointer;">
                 <div class="robot-icon">
                     <i class="fa-solid fa-robot"></i>
                 </div>
@@ -108,31 +108,31 @@
                 
                 <!-- Left Side: Candidates List -->
                 <div class="candidates-list">
-                    <div class="candidate-row selected" onclick="selectCandidate(this, 1)">
+                    <div class="candidate-row selected">
                         <div class="candidate-avatar bjp-logo">🪷</div>
                         <div class="candidate-name">Bharatiya Janata Party</div>
                         <div class="candidate-select-indicator active"></div>
                     </div>
 
-                    <div class="candidate-row" onclick="selectCandidate(this, 2)">
+                    <div class="candidate-row">
                         <div class="candidate-avatar inc-logo">✋</div>
                         <div class="candidate-name">Indian National Congress</div>
                         <div class="candidate-select-indicator"></div>
                     </div>
 
-                    <div class="candidate-row" onclick="selectCandidate(this, 3)">
+                    <div class="candidate-row">
                         <div class="candidate-avatar aap-logo">🧹</div>
                         <div class="candidate-name">Aam Aadmi Party</div>
                         <div class="candidate-select-indicator"></div>
                     </div>
 
-                    <div class="candidate-row" onclick="selectCandidate(this, 4)">
+                    <div class="candidate-row">
                         <div class="candidate-avatar bsp-logo">🐘</div>
                         <div class="candidate-name">Bahujan Samaj Party</div>
                         <div class="candidate-select-indicator"></div>
                     </div>
 
-                    <div class="candidate-row" onclick="selectCandidate(this, 5)">
+                    <div class="candidate-row">
                         <div class="candidate-avatar nota-logo">NOTA</div>
                         <div class="candidate-name">None of the Above</div>
                         <div class="candidate-select-indicator"></div>
@@ -145,24 +145,24 @@
                         <!-- Top Rows -->
                         <div class="evm-row">
                             <div class="evm-screen"></div>
-                            <button class="evm-btn active-red" id="evm-btn-1" onclick="castVote()">1</button>
+                            <button class="evm-btn active-red" id="evm-btn-1">1</button>
                         </div>
                         <div class="evm-row">
                             <div class="evm-screen"></div>
-                            <button class="evm-btn" id="evm-btn-2" onclick="castVote()">2</button>
+                            <button class="evm-btn" id="evm-btn-2">2</button>
                         </div>
                         <div class="evm-row">
                             <div class="evm-screen"></div>
-                            <button class="evm-btn" id="evm-btn-3" onclick="castVote()">3</button>
+                            <button class="evm-btn" id="evm-btn-3">3</button>
                         </div>
                         <div class="evm-row">
                             <div class="evm-screen"></div>
-                            <button class="evm-btn" id="evm-btn-4" onclick="castVote()">4</button>
+                            <button class="evm-btn" id="evm-btn-4">4</button>
                         </div>
                         <!-- Bottom Rows / Action -->
                         <div class="evm-row">
                             <div class="evm-screen"></div>
-                            <button class="evm-btn evm-confirm-btn" id="evm-btn-5" onclick="castVote()"><i class="fa-solid fa-fingerprint"></i></button>
+                            <button class="evm-btn evm-confirm-btn" id="evm-btn-5"><i class="fa-solid fa-fingerprint"></i></button>
                         </div>
                     </div>
                     <div class="evm-instruction">
@@ -206,5 +206,6 @@
             window.location.href = 'ink-marking.html';
         }
     </script>
+    <script src="app.js"></script>
 </body>
 </html>

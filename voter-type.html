@@ -68,7 +68,7 @@
                 </a>
             </nav>
 
-            <div class="need-help-widget" onclick="window.location.href='index.html?chat=true'" style="cursor: pointer;">
+            <div class="need-help-widget" style="cursor: pointer;">
                 <div class="robot-icon">
                     <i class="fa-solid fa-robot"></i>
                 </div>
@@ -112,7 +112,7 @@
 
                     <!-- Large option boxes -->
                     <div class="choice-boxes-group">
-                        <div class="choice-box selected" onclick="selectChoice(this)">
+                        <div class="choice-box selected">
                             <div class="choice-circle active">
                                 <i class="fa-solid fa-check"></i>
                             </div>
@@ -120,7 +120,7 @@
                             <span class="choice-subtitle">First time voter</span>
                         </div>
 
-                        <div class="choice-box" onclick="selectChoice(this)">
+                        <div class="choice-box">
                             <div class="choice-circle">
                                 <i class="fa-solid fa-check"></i>
                             </div>
@@ -133,7 +133,7 @@
                         <img loading="lazy" src="verify_ur_details_asset.png" alt="Verify Details" style="max-width: 64px; height: auto; border-radius: 8px; box-shadow: 0 4px 10px rgba(0,0,0,0.25);">
                     </div>
 
-                    <button class="btn-primary onboarding-next-btn voter-finish-btn" onclick="saveVoterTypeAndNavigate()">Finish</button>
+                    <button class="btn-primary onboarding-next-btn voter-finish-btn">Finish</button>
                 </div>
             </div>
         </main>
@@ -158,5 +158,6 @@
             window.location.href = 'index.html';
         }
     </script>
+    <script src="app.js"></script>
 </body>
 </html>

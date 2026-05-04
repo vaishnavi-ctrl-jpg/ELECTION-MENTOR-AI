@@ -79,7 +79,8 @@ body {
 }
 
 .sim-booth-large-img {
-    width: 440px;
+    width: 580px;
+    max-width: 100%;
     height: auto;
     object-fit: contain;
     border-radius: 12px;

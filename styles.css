@@ -79,8 +79,8 @@ body {
 }
 
 .sim-booth-large-img {
-    width: 1500px;
-    max-width: 100%;
+    width: 660px !important;
+    max-width: none !important;
     height: auto;
     object-fit: contain;
     border-radius: 12px;
@@ -1054,7 +1054,7 @@ body {
 
 .simulation-content-grid {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: auto 1fr;
     gap: 48px;
     flex-grow: 1;
     overflow: hidden;

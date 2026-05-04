@@ -78,6 +78,14 @@ body {
     border-radius: 12px;
 }
 
+.sim-building-img {
+    max-width: 100%;
+    height: auto;
+    max-height: 480px;
+    object-fit: contain;
+    border-radius: 12px;
+}
+
 .text-center-margin-12 {
     text-align: center;
     margin: 12px 0;
